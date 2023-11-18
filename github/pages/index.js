@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { signIn,signOut } from "next-auth/react";
-
+import { signIn, signOut } from "next-auth/react";
+import Link from "next/link";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -9,9 +9,9 @@ export default function Home() {
   const signInHandler = () => {
     signIn("github");
   };
-  const signOutHandler=()=>{
+  const signOutHandler = () => {
     signOut();
-  }
+  };
   return (
     <>
       <Head>
@@ -24,6 +24,12 @@ export default function Home() {
         <h1>Next Auth | GitHub </h1>
         <button onClick={signInHandler}>Sign In</button>
         <button onClick={signOutHandler}>Sign Out</button>
+        <button>
+          <Link href="/dashbord">Dashbord</Link>
+        </button>
+        <button>
+          <Link href="/ssrdashbord">SSR Dashbord</Link>
+        </button>
       </main>
     </>
   );
